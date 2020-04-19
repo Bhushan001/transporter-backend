@@ -6,8 +6,6 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
       MYSQL_DATABASE: transporter
     ports:
       - 3306:3306
