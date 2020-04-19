@@ -9,7 +9,7 @@ COPY Gruntfile.js /app/blubox/Gruntfile.js
 COPY . /app/transporter
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
-FROM node:6.11.2-alpine
+FROM node:12.16.2-alpine3.10
 RUN apk update && apk add nodejs
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
