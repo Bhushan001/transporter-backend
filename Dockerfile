@@ -6,7 +6,6 @@ RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
 COPY package.json /app/blubox/package.json
 COPY Gruntfile.js /app/blubox/Gruntfile.js
-RUN npm install
 COPY . /app/transporter
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
@@ -16,5 +15,6 @@ WORKDIR /app/transporter
 COPY . /app/transporter
 COPY --from=serverbuilder /app/transporter/node_modules /app/transporter/node_modules
 COPY --from=serverbuilder /app/transporter /app/transporter
+RUN npm install
 EXPOSE 3000
 CMD [ "grunt","docker" ]
