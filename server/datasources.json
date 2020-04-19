@@ -1,5 +1,5 @@
 {
-  "db": {
+  "mysql": {
     "host": "mysql",
     "port": "3306",
     "database": "transporter",

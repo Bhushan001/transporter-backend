@@ -11,7 +11,7 @@ services:
       - 3306:3306
     restart: unless-stopped
   api:
-    image: shoppinpal/node:6.10
+    image: transporter-api
     working_dir: /apps/transporter
     restart: always
     ports:
