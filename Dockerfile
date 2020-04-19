@@ -4,8 +4,11 @@ RUN apt-get -y update && apt-get -y dist-upgrade && apt-get clean && rm -rf /var
 RUN npm install -g grunt-cli
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
-COPY . /app/transporter
+COPY package.json /app/blubox/package.json
+COPY Gruntfile.js /app/blubox/Gruntfile.js
 RUN npm install
+COPY . /app/transporter
+RUN grunt docker
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
 FROM node:6.11.2-alpine
@@ -14,4 +17,4 @@ WORKDIR /app/transporter
 COPY . /app/transporter
 COPY --from=serverbuilder /app/transporter /app/transporter
 EXPOSE 3000
-CMD [ "node","server/server.js" ]
+CMD [ "grunt","docker" ]
