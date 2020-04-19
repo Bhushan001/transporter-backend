@@ -15,17 +15,6 @@ services:
     ports:
       - 3306:3306
     restart: unless-stopped
-  phpmyadmin:
-    depends_on:
-      - mysql
-    image: phpmyadmin/phpmyadmin
-    environment:
-      PMA_HOST: mysql
-    links:
-      - mysql:mysql
-    ports:
-      - 8080:80
-    restart: always
   api:
     image: shoppinpal/node:6.10
     working_dir: /apps/transporter
