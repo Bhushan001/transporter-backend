@@ -29,7 +29,6 @@ services:
   api:
     image: shoppinpal/node:6.10
     working_dir: /apps/transporter
-    command: node_modules/grunt/bin/grunt docker
     restart: always
     ports:
       - "3000:3000"
