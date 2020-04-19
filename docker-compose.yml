@@ -36,5 +36,4 @@ services:
     volumes:
       - .:/app/transporter
     depends_on:
-      - es
-      - workerdb
+      - mysql
