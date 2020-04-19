@@ -1,6 +1,6 @@
 {
-  "mysql": {
-    "host": "mysql",
+  "db": {
+    "host": "db",
     "port": "3306",
     "database": "transporter",
     "password": "root",
