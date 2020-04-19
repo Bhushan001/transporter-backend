@@ -3,9 +3,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y dist-upgrade && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
-COPY package.json /app/transporter/package.json
-RUN npm install
 COPY . /app/transporter
+RUN npm install
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
 FROM node:6.11.2-alpine
