@@ -8,7 +8,6 @@ COPY package.json /app/blubox/package.json
 COPY Gruntfile.js /app/blubox/Gruntfile.js
 RUN npm install
 COPY . /app/transporter
-RUN grunt docker
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
 FROM node:6.11.2-alpine
