@@ -10,7 +10,7 @@ COPY . /app/transporter
 # RUN if [ ${BUILD_ENV} = "production" ]; then grunt cdn; fi
 
 FROM node:6.11.2-alpine
-RUN apk add --update nodejs npm
+RUN apk update && apk add nodejs
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
 COPY . /app/transporter
