@@ -1,17 +1,14 @@
 version: "3.4"
 
-x-common-variables: &common-variables
-  MYSQL_USER: root
-  MYSQL_PASSWORD: root
-  MYSQL_DATABASE: transporter
-
 services:
   mysql:
     image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
     environment:
-      <<: *common-variables
-      MYSQL_HOST: localhost
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: transporter
     ports:
       - 3306:3306
     restart: unless-stopped
