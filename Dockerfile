@@ -13,7 +13,6 @@ FROM node:6.11.2-alpine
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
 COPY . /app/transporter
-COPY --from=serverbuilder /app/transporter/node_modules /app/transporter/node_modules
 COPY --from=serverbuilder /app/transporter /app/transporter
 RUN npm install
 EXPOSE 3000
