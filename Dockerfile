@@ -1,7 +1,6 @@
 FROM shoppinpal/node:6.10 as serverbuilder
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y update && apt-get -y dist-upgrade && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-RUN npm install -g grunt-cli
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
 COPY package.json /app/blubox/package.json
@@ -14,6 +13,7 @@ RUN apk update && apk add nodejs
 RUN mkdir -p /app/transporter
 WORKDIR /app/transporter
 COPY . /app/transporter
+RUN npm install -g grunt-cli
 COPY --from=serverbuilder /app/transporter /app/transporter
 RUN npm install
 EXPOSE 3000
